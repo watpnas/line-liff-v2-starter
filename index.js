@@ -8,7 +8,7 @@ const lineKey = process.env.LINE_KEY;
 const telegramTK = process.env.TELEGRAM_TK;
 const telegramChatId = process.env.TELEGRAM_CHAT_ID;
 //axios.defaults.baseURL = "https://api.telegram.org"
-var telegramEndpoint = "https://api.telegram.org/"+ telegramTK +"/sendMessage?chat_id=" + telegramChatId;
+var telegramEndpoint = "https://api.telegram.org/"+ telegramTK +"/sendMessage;
 app.use(express.static('public'));
 
 app.get('/send-id', function(req, res) {
@@ -19,9 +19,14 @@ app.post('/echo', function(req, res) {
 });
 app.get('/tele', function(req, res) {
     if(req.query.text){
-        axios.get(telegramEndpoint+"&text="+req.query.text)
+        axios.get(telegramEndpoint, {
+            params: {
+              text: req.query.text,
+              chat_id:telegramChatId
+            }
+          })
             .then(r=>{res.send({d:r.data})})
-            .catch(r=>{res.send({isError:true,msg:r})})
+            .catch(r=>{res.send({isError:true,url:telegramEndpoint+"&text="+req.query.text,msg:r})})
         
 
 //             .then(res.json({text:req.body}))
