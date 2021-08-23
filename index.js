@@ -5,7 +5,7 @@ const app2 = express();
 const port = process.env.PORT || 5000;
 const myLiffId = process.env.MY_LIFF_ID;
 const lineKey = process.env.LINE_KEY;
-const telegramKey = process.env.TELEGRAM_KEY;
+const telegramTK = process.env.TELEGRAM_TK;
 const telegramChatId = process.env.TELEGRAM_CHAT_ID;
 var telegramEndpoint = "https://api.telegram.org/"+ telegramKey +"/sendMessage?chat_id=" + telegramChatId;
 app.use(express.static('public'));
@@ -14,7 +14,7 @@ app.get('/send-id', function(req, res) {
     res.json({id: myLiffId});
 });
 app.post('/echo', function(req, res) {
-    res.json({line: lineKey||"999",telegram:telegramKey,body:req.body});
+    res.json({line: lineKey||"999",telegram:telegramTK,body:req.body});
 });
 app.get('/tele', function(req, res) {
     if(req.query.text){
