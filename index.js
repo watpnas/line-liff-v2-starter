@@ -19,11 +19,13 @@ app.post('/echo', function(req, res) {
 });
 app.get('/tele', function(req, res) {
     if(req.query.text){
-        axios.get("http://lotus.snapx.cloud/api/v1/raw22?cc=2009")//telegramEndpoint+"&text="+req.query.text)
-            .then(function (response) {res.json(response);})
+        var result = await axios.get("http://lotus.snapx.cloud/api/v1/raw22?cc=2009")//telegramEndpoint+"&text="+req.query.text)
+            .then(r=>return r.data)
             .catch(error => {
                 res.json({isError:true,msg:error,url:telegramEndpoint+"&text="+req.query.text});
               })
+        res.json(result)
+
 //             .then(res.json({text:req.body}))
     }else{
         res.json({isError:true,msg:'text is empty'});
