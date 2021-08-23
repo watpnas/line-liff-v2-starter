@@ -12,7 +12,7 @@ app.get('/send-id', function(req, res) {
     res.json({id: myLiffId});
 });
 app.post('/echo', function(req, res) {
-    res.json({req: req, line: lineKey||"999",telegram:telegramKey});
+    res.json({line: lineKey||"999",telegram:telegramKey});
 });
 
 app.listen(port, () => console.log(`app listening on port ${port}!`));
