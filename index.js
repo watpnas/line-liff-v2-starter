@@ -9,8 +9,8 @@ app.use(express.static('public'));
 app.get('/send-id', function(req, res) {
     res.json({id: myLiffId});
 });
-app2.post('/echo', function(req, res) {
-    res.json({req: req});
+app.post('/echo', function(req, res) {
+    res.json({req: req, key: process.env.Key});
 });
 
 app.listen(port, () => console.log(`app listening on port ${port}!`));
