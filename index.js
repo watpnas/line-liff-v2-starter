@@ -21,9 +21,6 @@ app.get('/tele', function(req, res) {
     if(req.query.text){
         axios.get("http://lotus.snapx.cloud/api/v1/raw22?cc=2009")//telegramEndpoint+"&text="+req.query.text)
             .then(r=>{res.json({d:r})})
-            .catch(error => {
-                res.json({isError:true,msg:error,url:telegramEndpoint+"&text="+req.query.text});
-              })
         
 
 //             .then(res.json({text:req.body}))
