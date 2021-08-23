@@ -16,7 +16,7 @@ app.get('/send-id', function(req, res) {
 app.post('/echo', function(req, res) {
     res.json({line: lineKey||"999",telegram:telegramKey,body:req.body});
 });
-app.post('/tele', function(req, res) {
+app.get('/tele', function(req, res) {
     if(req.body.text){
         axios.get(telegramEndpoint, {
             text: req.body.text
