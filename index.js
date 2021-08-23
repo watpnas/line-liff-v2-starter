@@ -7,7 +7,7 @@ const myLiffId = process.env.MY_LIFF_ID;
 const lineKey = process.env.LINE_KEY;
 const telegramTK = process.env.TELEGRAM_TK;
 const telegramChatId = process.env.TELEGRAM_CHAT_ID;
-var telegramEndpoint = "https://api.telegram.org/"+ telegramKey +"/sendMessage?chat_id=" + telegramChatId;
+var telegramEndpoint = "https://api.telegram.org/"+ telegramTK +"/sendMessage?chat_id=" + telegramChatId;
 app.use(express.static('public'));
 
 app.get('/send-id', function(req, res) {
