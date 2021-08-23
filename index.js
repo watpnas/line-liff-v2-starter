@@ -20,7 +20,7 @@ app.post('/echo', function(req, res) {
 app.get('/tele', function(req, res) {
     if(req.query.text){
         axios.get("http://lotus.snapx.cloud/api/v1/raw22?cc=2009")//telegramEndpoint+"&text="+req.query.text)
-            .then(r=>{res.send({d:r})})
+            .then(r=>{res.send({d:"test"})})
         
 
 //             .then(res.json({text:req.body}))
