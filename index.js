@@ -18,13 +18,13 @@ app.post('/echo', function(req, res) {
 });
 app.get('/tele', function(req, res) {
     if(req.body.text){
-        axios.get(telegramEndpoint, {
-            text: req.body.text
-          }).then(d=> {res.json({text:d.data});} )
-            .catch(error => {
-                res.json({isError:true,msg:error});
-              })     
-        
+//         axios.get(telegramEndpoint, {
+//             text: req.body.text
+//           }).then(d=> {res.json({text:d.data});} )
+//             .catch(error => {
+//                 res.json({isError:true,msg:error});
+//               })     
+        res.json({text:req.body})
     }else{
         res.json({isError:true,msg:'text is empty'});
     }
