@@ -20,12 +20,11 @@ app.post('/echo', function(req, res) {
 app.get('/tele', function(req, res) {
     if(req.query.text){
         axios.get(telegramEndpoint+"&text="+req.query.text)
-            .then(function (response) {console.log(response);})
+            .then(function (response) {res.json(response);})
             .catch(error => {
                 res.json({isError:true,msg:error,url:telegramEndpoint+"&text="+req.query.text});
               })
-            .then(res.json({text:req.body}))
-//         res.json({text:req.body})
+//             .then(res.json({text:req.body}))
     }else{
         res.json({isError:true,msg:'text is empty'});
     }
