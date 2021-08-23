@@ -8,7 +8,7 @@ const lineKey = process.env.LINE_KEY;
 const telegramTK = process.env.TELEGRAM_TK;
 const telegramChatId = process.env.TELEGRAM_CHAT_ID;
 //axios.defaults.baseURL = "https://api.telegram.org"
-var telegramEndpoint = "https://api.telegram.org/"+ telegramTK +"/sendMessage;
+var telegramEndpoint = "https://api.telegram.org/"+ telegramTK +"/sendMessage";
 app.use(express.static('public'));
 
 app.get('/send-id', function(req, res) {
