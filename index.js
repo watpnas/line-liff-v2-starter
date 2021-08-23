@@ -10,7 +10,7 @@ app.get('/send-id', function(req, res) {
     res.json({id: myLiffId});
 });
 app.post('/echo', function(req, res) {
-    res.json({req: req, key: process.env.Key});
+    res.json({req: req, key: process.env.Key||"999"});
 });
 
 app.listen(port, () => console.log(`app listening on port ${port}!`));
