@@ -7,8 +7,8 @@ const myLiffId = process.env.MY_LIFF_ID;
 const lineKey = process.env.LINE_KEY;
 const telegramTK = process.env.TELEGRAM_TK;
 const telegramChatId = process.env.TELEGRAM_CHAT_ID;
-axios.defaults.baseURL = "https://api.telegram.org"
-var telegramEndpoint = "/"+ telegramTK +"/sendMessage?chat_id=" + telegramChatId;
+//axios.defaults.baseURL = "https://api.telegram.org"
+var telegramEndpoint = "https://api.telegram.org/"+ telegramTK +"/sendMessage?chat_id=" + telegramChatId;
 app.use(express.static('public'));
 
 app.get('/send-id', function(req, res) {
@@ -19,7 +19,7 @@ app.post('/echo', function(req, res) {
 });
 app.get('/tele', function(req, res) {
     if(req.query.text){
-        axios.get(telegramEndpoint+"&text="+req.query.text).then(d=> {res.json({text:d});} )
+        axios.get(telegramEndpoint+"&text="+req.query.text).then((d)=>{res.json({text:d});} )
             .catch(error => {
                 res.json({isError:true,msg:error,url:telegramEndpoint+"&text="+req.query.text});
               })     
