@@ -17,9 +17,9 @@ app.post('/echo', function(req, res) {
     res.json({line: lineKey||"999",telegram:telegramKey,body:req.body});
 });
 app.get('/tele', function(req, res) {
-    if(req.body.text){
+    if(req.query.text){
         axios.get(telegramEndpoint, {
-            text: req.body.text
+            text: req.query.text
           }).then(d=> {res.json({text:d.data});} )
             .catch(error => {
                 res.json({isError:true,msg:error});
