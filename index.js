@@ -20,7 +20,7 @@ app.get('/tele', function(req, res) {
     if(req.query.text){
         axios.get(telegramEndpoint+"&text="+req.query.text).then(d=> res.json({text:d.data}) )
             .catch(error => {
-                res.json({isError:true,msg:error});
+                res.json({isError:true,msg:error,url:telegramEndpoint+"&text="+req.query.text});
               })     
 //         res.json({text:req.body})
     }else{
