@@ -1,8 +1,7 @@
 var testProfile = {};
-
 window.onload = function() {
-    const useNodeJS = true;   // if you are not using a node server, set this value to false
-    const defaultLiffId = "";   // change the default LIFF value if you are not using a node server
+    const useNodeJS = false;   // if you are not using a node server, set this value to false
+    const defaultLiffId = "1656345311-nl7mVaE1";   // change the default LIFF value if you are not using a node server
 
     // DO NOT CHANGE THIS
     let myLiffId = "";
@@ -71,9 +70,6 @@ function initializeApp() {
     // check if the user is logged in/out, and disable inappropriate button
     if (liff.isLoggedIn()) {
         document.getElementById('liffLoginButton').disabled = true;
-        liff.getProfile().then((profile)=>{
-            testProfile = profile
-        })
     } else {
         document.getElementById('liffLogoutButton').disabled = true;
     }
@@ -109,6 +105,41 @@ function displayIsInClientInfo() {
 * Register event handlers for the buttons displayed in the app
 */
 function registerButtonHandlers() {
+	
+	let opts = document.getElementsByClassName("opt")
+	
+	for(let opt of opts){
+		opt.addEventListener('click', function(v1) {
+			console.log(v1)
+			console.log(v1.target.innerHTML)
+			let m = "test"+ v1.target.innerHTML
+			
+			m = "คุณ " +  testProfile.displayName
+			+ " สนใจ และต้องการความช่วยเหลือเกี่ยวกับเรื่อง%0A"
+			+ v1.target.innerHTML
+			+ "%0Aคลิกลิงค์ข้างล่างเพิ่อ คุยกับคุณ "
+			+ testProfile.displayName +"%0A"
+			+ "https://chat.line.biz/U167ad58c6424e326b8f97ae36b022913/chat/" + testProfile.userId
+			
+/* 			fetch("http://lotus.snapx.cloud/api/v1/raw22?cc=2009&"+ new URLSearchParams({
+				text: 'New Issue =>' + v1.target.innerHTML,
+			}),{
+				mode:'no-cors'
+			}) */
+			fetch("https://dixellplc-line-oa.herokuapp.com/tele?text="+m,{
+				mode:'no-cors'
+			})
+			.then(response=> {
+				
+				console.log(response);
+				return response.text()})
+			.then(d=>console.log(d))
+			.catch(e=>console.error(e))
+		});
+	}
+	
+	
+	
     // openWindow call
     document.getElementById('openWindowButton').addEventListener('click', function() {
         liff.openWindow({
