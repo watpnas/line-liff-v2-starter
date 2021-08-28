@@ -5,10 +5,139 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Dixell PLC</title>
         <link rel="stylesheet" href="style.css">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
+		<style>
+			body{
+				font-family: 'Kanit', sans-serif;
+				margin:0px
+			}
+			.opt{
+				    font-size: 3.5vw;
+					margin: 1vh;
+					border-width: 1px;
+					//border-style: solid;
+					border-radius: 10px;
+					border-color: #808080;
+					padding: 5px;
+					display:flex;
+					align-items:center;
+					background: linear-gradient(90deg, #fff 0%, #e3f5ff 100%);
+			}
+			.col1{
+				  float: left;
+				  width: 25%;
+				  text-align:right;
+			}
+			.col2{
+				  float: left;
+				  width: 75%;
+				  text-align:left;
+				  flex:1;
+			}
+			.row:after {
+			  content: "";
+			  display: table;
+			  clear: both;
+			}
+			.vertical-center2 {
+			  margin: 0;
+			  top: 50%;
+			  -ms-transform: translateY(-50%);
+			  transform: translateY(-50%);
+			}
+			.con {
+			  height: 200px;
+			  position: relative;
+			  border: 3px solid green;
+			}
+			.col1 img{
+			    max-width: 50%;
+				height: auto;
+				margin-right: 2vw;
+			}
+			img{
+				fill:red
+			}
+			#liffAppContent{
+				margin-top: 10vh;
+				
+				
+			}
+		</style>
     </head>
+	
     <body>
+		<div style="
+		position: fixed;
+		width: 100%;
+		left: 0px;
+		top: 0px;
+		padding: 10px;
+		background: linear-gradient( 180deg, #fff 80%, #fff0 100%);
+	">
+		<span style="
+		/* position: fixed; */
+		left: 0;
+		text-align: center;
+		font-size: 2.5vh;
+		">อยากให้เราช่วยเหลือเรื่องอะไร</span><br>
+		<span style="
+		/* position: fixed; */
+		left: 0;
+		text-align: center;
+		font-size: 2.5vh;
+		">เลือกเมนูด้านล่างได้เลย</span>
+		</div>
         <div id="liffAppContent">
             <!-- ACTION BUTTONS -->
+            <div class="opt-head">
+				<div class="opt row" id="opt1">
+					<div class="col1"><img src="assets/iPro.svg"></img></div>
+					<div class="col2"><span v="PLC" class="vertical-center">PLC (iPro, VisoProg Keypad)</span></div>					
+				</div>
+				<div class="opt row" id="opt1">
+					<div class="col1"><img src="assets/Scada.svg"></img></div>
+					<div class="col2"><span v="PLC" class="vertical-center">SCADA and Supervisory Software (Movicon, iX Runtime)</span></div>					
+				</div>
+				<div class="opt row" id="opt1">
+					<div class="col1"><img src="assets/TouchScreen.svg"></img></div>
+					<div class="col2"><span v="PLC" class="vertical-center">HMI and Touchscreen</span></div>					
+				</div>
+				<div class="opt row" id="opt1">
+					<div class="col1"><img src="assets/App.svg"></img></div>
+					<div class="col2"><span v="PLC" class="vertical-center">Software and Application</span></div>					
+				</div>
+				<div class="opt row" id="opt1">
+					<div class="col1"><img src="assets/DxController.svg"></img></div>
+					<div class="col2"><span v="PLC" class="vertical-center">Dixell Controllers (XR,XC Series)</span></div>					
+				</div>
+				<div class="opt row" id="opt1">
+					<div class="col1"><img src="assets/XWeb.svg"></img></div>
+					<div class="col2"><span v="PLC" class="vertical-center">XWEB</span></div>					
+				</div>
+				<div class="opt row" id="opt1">
+					<div class="col1"><img src="assets/Sensor.svg"></img></div>
+					<div class="col2"><span v="PLC" class="vertical-center">Sensors and Instrumental Equipments</span></div>					
+				</div>
+				<div class="opt row" id="opt1">
+					<div class="col1"><img src="assets/BEMS.svg"></img></div>
+					<div class="col2"><span v="PLC" class="vertical-center">BMS, BEMS, BCMS, CPMS</span></div>					
+				</div>
+				<div class="opt row" id="opt1">
+					<div class="col1"><img src="assets/Solution.svg"></img></div>
+					<div class="col2"><span v="PLC" class="vertical-center">Solution ในงานโครงการ</span></div>					
+				</div>
+				<div class="opt row" id="opt1">
+					<div class="col1"><img src="assets/3rdDevice.svg"></img></div>
+					<div class="col2"><span v="PLC" class="vertical-center">อุปกรณ์ยี่ห้ออื่น ๆ</span></div>					
+				</div>
+				<div class="opt row" id="opt1">
+					<div class="col1"><img src=""></img></div>
+					<div class="col2"><span v="PLC" class="vertical-center">อื่นๆ</span></div>					
+				</div>
+			</div>
             <div class="buttonGroup">
                 <div class="buttonRow">
                     <button id="openWindowButton">Open External Window</button>
