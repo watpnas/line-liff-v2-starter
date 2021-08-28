@@ -1,3 +1,5 @@
+var testProfile = {};
+
 window.onload = function() {
     const useNodeJS = true;   // if you are not using a node server, set this value to false
     const defaultLiffId = "";   // change the default LIFF value if you are not using a node server
@@ -69,6 +71,9 @@ function initializeApp() {
     // check if the user is logged in/out, and disable inappropriate button
     if (liff.isLoggedIn()) {
         document.getElementById('liffLoginButton').disabled = true;
+        liff.getProfile().then((profile)=>{
+            testProfile = profile
+        })
     } else {
         document.getElementById('liffLogoutButton').disabled = true;
     }
