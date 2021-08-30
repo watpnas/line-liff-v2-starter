@@ -109,21 +109,47 @@ function displayIsInClientInfo() {
 */
 function registerButtonHandlers() {
 	
+	let topic = "";
+	let selector = document.getElementById("selectMenu")
+	let texter = document.getElementById("moreText")
 	let opts = document.getElementsByClassName("opt")
+	let topicDOM = document.getElementById("topic")
+	let q1 = document.getElementById("question1")
+	let q2 = document.getElementById("question2")
 	
 	for(let opt of opts){
 		opt.addEventListener('click', function(v1) {
-			console.log(opt)
 			console.log(opt.getAttribute('value'))
 			let i = opt.getAttribute('value')
 			let m = "test"+ v1.target.innerHTML
-			let t = "https://chat.line.biz/U167ad58c6424e326b8f97ae36b022913/chat/" + testProfile.userId;
-			m = "คุณ " 
-			+ "<b>"+ testProfile.displayName +"</b>"
-			+ " ติดต่อเข้ามา%0Aเรื่อง "
-			+ "<b>"+ i +"</b>"
-			+ "%0A<a href='"+t+"'>Go To Line OA</a>";
-			console.log(m);
+
+			topic = i;
+			topicDOM.innerHTML = topic;
+			selector.classList.remove("fade-in")
+			texter.classList.remove("slide-back")
+			selector.classList.add("fade-out")
+			texter.classList.add("slide")
+			q1.classList.add("hidden")
+			q2.classList.remove("hidden")
+		});
+	}
+	
+	let confirmB = document.getElementById("confirm")
+	let textA = document.getElementById("fname")
+	let cancelB = document.getElementById("cancel")
+	
+	confirmB.addEventListener('click', function() {
+		console.log('Confirmed')
+		console.log(textA.value)
+		console.log(topic);
+		
+		let t = "https://chat.line.biz/U167ad58c6424e326b8f97ae36b022913/chat/" + testProfile.userId;
+		let m = "คุณ " 
+		+ "<b>"+ testProfile.displayName +"</b>"
+		+ " ติดต่อเข้ามา%0Aเรื่อง "
+		+ "<b>"+ topic +"</b>"
+		+ textA.value?'Info:%0A   ':''
+		+ "%0A<a href='"+t+"'>Go To Line OA</a>";
 			fetch("https://dixellplc-line-oa.herokuapp.com/tele?text="+m,{
 				mode:'no-cors'
 			})
@@ -140,9 +166,17 @@ function registerButtonHandlers() {
 				liff.closeWindow();
 			})
 			.catch(e=>console.error(e))
-		});
-	}
-	
+	})
+	cancelB.addEventListener('click', function() {
+		console.log('Canceled');		
+		selector.classList.remove("fade-out")
+		texter.classList.remove("slide")
+		selector.classList.add("fade-in")
+		texter.classList.add("slide-back")
+		q1.classList.remove("hidden")
+		q2.classList.add("hidden")
+		
+	})
 	
 	
     // openWindow call
