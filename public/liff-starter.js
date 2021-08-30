@@ -112,23 +112,18 @@ function registerButtonHandlers() {
 	let opts = document.getElementsByClassName("opt")
 	
 	for(let opt of opts){
-		opt.addEventListener('click', function(v1) {
-			console.log(v1)
-			console.log(v1.target.innerHTML)
+		opt.addEventListener('click', function(v1,v2) {
+			console.log(opt)
+			console.log(opt.getAttribute('v'))
+			let i = opt.getAttribute('v')
 			let m = "test"+ v1.target.innerHTML
-			
-			m = "คุณ " +  testProfile.displayName
-			+ " สนใจ และต้องการความช่วยเหลือเกี่ยวกับเรื่อง%0A"
-			+ v1.target.innerHTML
-			+ "%0Aคลิกลิงค์ข้างล่างเพิ่อ คุยกับคุณ "
-			+ testProfile.displayName +"%0A"
-			+ "https://chat.line.biz/U167ad58c6424e326b8f97ae36b022913/chat/" + testProfile.userId
-			
-/* 			fetch("http://lotus.snapx.cloud/api/v1/raw22?cc=2009&"+ new URLSearchParams({
-				text: 'New Issue =>' + v1.target.innerHTML,
-			}),{
-				mode:'no-cors'
-			}) */
+			let t = "https://chat.line.biz/U167ad58c6424e326b8f97ae36b022913/chat/" + testProfile.userId;
+			m = "คุณ " 
+			+ "<b>"+ testProfile.displayName +"</b>"
+			+ " ติดต่อเข้ามา%0Aเรื่อง "
+			+ "<b>"+ i +"</b>"
+			+ "%0A<a href='"+t+"'>Go To Line OA</a>";
+			console.log(m);
 			fetch("https://dixellplc-line-oa.herokuapp.com/tele?text="+m,{
 				mode:'no-cors'
 			})
