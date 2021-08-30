@@ -112,9 +112,9 @@ function registerButtonHandlers() {
 	let opts = document.getElementsByClassName("opt")
 	
 	for(let opt of opts){
-		opt.addEventListener('click', function(v1,v2) {
+		opt.addEventListener('click', function(v1) {
 			console.log(opt)
-			console.log(opt.getAttribute('v'))
+			console.log(opt.getAttribute('value'))
 			let i = opt.getAttribute('v')
 			let m = "test"+ v1.target.innerHTML
 			let t = "https://chat.line.biz/U167ad58c6424e326b8f97ae36b022913/chat/" + testProfile.userId;
