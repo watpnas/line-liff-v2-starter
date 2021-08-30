@@ -145,8 +145,14 @@ function registerButtonHandlers() {
 		console.log(textA.value)
 		console.log(topic);
 		
+		liff.sendMessages([{
+		'type': 'text',
+		'text': "ติดต่อเรื่อง "+topic
+	}]);			
+		liff.closeWindow();
+		
 		let t = "https://chat.line.biz/U167ad58c6424e326b8f97ae36b022913/chat/" + testProfile.userId;
-		let info = textA.value?'Info:%0A   ':''
+		let info = textA.value?'%0AInfo:%0A   '+textA.value:''
 		let m = "คุณ " 
 		+ "<b>"+ testProfile.displayName +"</b>"
 		+ " ติดต่อเข้ามา%0Aเรื่อง "
@@ -162,11 +168,6 @@ function registerButtonHandlers() {
 				return response.text()})
 			.then(d=>{
 				console.log(d);
-				liff.sendMessages([{
-                'type': 'text',
-                'text': "ติดต่อเรื่อง "+i
-            }]);			
-				liff.closeWindow();
 			})
 			.catch(e=>console.error(e))
 	})
