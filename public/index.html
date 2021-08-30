@@ -93,6 +93,7 @@
         <div id="liffAppContent">
             <!-- ACTION BUTTONS -->
             <div class="opt-head">
+
 				<div class="opt row" id="opt1" value="🎛 PLC">
 					<div class="col1"><img src="assets/iPro.svg"></img></div>
 					<div class="col2"><span class="vertical-center">PLC (iPro, VisoProg Keypad)</span></div>					
@@ -129,16 +130,17 @@
 					<div class="col1"><img src="assets/Solution.svg"></img></div>
 					<div class="col2"><span class="vertical-center">Solution ในงานโครงการ</span></div>					
 				</div>
-				<div class="opt row" id="opt10" value="⚔️ 3rd Party Device">
+				<div class="opt row" id="opt10" value="🤹 3rd Party Device">
 					<div class="col1"><img src="assets/3rdDevice.svg"></img></div>
 					<div class="col2"><span class="vertical-center">อุปกรณ์ยี่ห้ออื่น ๆ</span></div>					
 				</div>
-				<div class="opt row" id="opt11" value="🔪 Others">
+				<div class="opt row" id="opt11" value="🌌 Others">
 					<div class="col1"><img src=""></img></div>
 					<div class="col2"><span class="vertical-center">อื่นๆ</span></div>					
 				</div>
 			</div>
-            <div class="buttonGroup" class="hidden">
+        <div class="hidden">
+			<div class="buttonGroup" class="hidden">
                 <div class="buttonRow">
                     <button id="openWindowButton">Open External Window</button>
                     <button id="closeWindowButton">Close LIFF App</button>
@@ -253,7 +255,8 @@
         <div id="nodeLiffIdErrorMessage" class="hidden">
             <p>Unable to receive the LIFF ID as an environment variable.</p>
         </div>
-        <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+        </div>
+		<script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
         <script src="liff-starter.js"></script>
     </body>
 </html>
