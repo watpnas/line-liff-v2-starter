@@ -136,7 +136,8 @@ function registerButtonHandlers() {
 				liff.sendMessages([{
                 'type': 'text',
                 'text': "ติดต่อเรื่อง "+i
-            }])
+            }]);			
+				liff.closeWindow();
 			})
 			.catch(e=>console.error(e))
 		});
