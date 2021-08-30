@@ -1,7 +1,7 @@
 var testProfile = {};
 window.onload = function() {
     const useNodeJS = false;   // if you are not using a node server, set this value to false
-    const defaultLiffId = "1656345311-nl7mVaE1";   // change the default LIFF value if you are not using a node server
+    const defaultLiffId = "";   // change the default LIFF value if you are not using a node server
 
     // DO NOT CHANGE THIS
     let myLiffId = "";
@@ -115,7 +115,7 @@ function registerButtonHandlers() {
 		opt.addEventListener('click', function(v1) {
 			console.log(opt)
 			console.log(opt.getAttribute('value'))
-			let i = opt.getAttribute('v')
+			let i = opt.getAttribute('value')
 			let m = "test"+ v1.target.innerHTML
 			let t = "https://chat.line.biz/U167ad58c6424e326b8f97ae36b022913/chat/" + testProfile.userId;
 			m = "คุณ " 
