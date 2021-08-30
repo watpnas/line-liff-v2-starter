@@ -22,7 +22,8 @@ app.get('/tele', function(req, res) {
         axios.get(telegramEndpoint, {
             params: {
               text: req.query.text,
-              chat_id:telegramChatId
+              chat_id:telegramChatId,
+               parse_mode:"HTML"
             }
           })
             .then(r=>{res.send({d:r.data})})
