@@ -131,7 +131,13 @@ function registerButtonHandlers() {
 				
 				console.log(response);
 				return response.text()})
-			.then(d=>console.log(d))
+			.then(d=>{
+				console.log(d);
+				liff.sendMessages([{
+                'type': 'text',
+                'text': "ติดต่อเรื่อง "+i
+            }]
+			})
 			.catch(e=>console.error(e))
 		});
 	}
