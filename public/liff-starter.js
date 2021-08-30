@@ -15,7 +15,6 @@ window.onload = function() {
             })
             .then(function(jsonResponse) {
                 myLiffId = jsonResponse.id;
-		console.log(myLiffId);
                 initializeLiffOrDie(myLiffId);
             })
             .catch(function(error) {
@@ -114,6 +113,7 @@ function registerButtonHandlers() {
 	let selector = document.getElementById("selectMenu")
 	let texter = document.getElementById("moreText")
 	let opts = document.getElementsByClassName("opt")
+	let quit = document.getElementById("opt0")
 	let topicDOM = document.getElementById("topic")
 	let q1 = document.getElementById("question1")
 	let q2 = document.getElementById("question2")
@@ -132,6 +132,7 @@ function registerButtonHandlers() {
 			texter.classList.add("slide")
 			q1.classList.add("hidden")
 			q2.classList.remove("hidden")
+			scroll(0,0);
 		});
 	}
 	
@@ -145,11 +146,12 @@ function registerButtonHandlers() {
 		console.log(topic);
 		
 		let t = "https://chat.line.biz/U167ad58c6424e326b8f97ae36b022913/chat/" + testProfile.userId;
+		let info = textA.value?'Info:%0A   ':''
 		let m = "คุณ " 
 		+ "<b>"+ testProfile.displayName +"</b>"
 		+ " ติดต่อเข้ามา%0Aเรื่อง "
 		+ "<b>"+ topic +"</b>"
-		+ textA.value?'Info:%0A   ':''
+		+ info
 		+ "%0A<a href='"+t+"'>Go To Line OA</a>";
 			fetch("https://dixellplc-line-oa.herokuapp.com/tele?text="+m,{
 				mode:'no-cors'
@@ -175,7 +177,12 @@ function registerButtonHandlers() {
 		selector.classList.add("fade-in")
 		texter.classList.add("slide-back")
 		q1.classList.remove("hidden")
-		q2.classList.add("hidden")
+		q2.classList.add("hidden")		
+		
+	})
+	
+	quit.addEventListener('click', function() {	
+		liff.closeWindow();
 		
 	})
 	
